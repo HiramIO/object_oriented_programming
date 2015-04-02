@@ -5,14 +5,14 @@ class Rover
         @dir = init_dir
     end
     def read_instruction(user_input)
-        commands = user_input.split
+        commands = user_input.split(//)
             commands.each do |x|
                 if x == "L"
-                    turn_left
+                    self.turn_left
                 elsif x == "R"
-                    turn_right
+                    self.turn_right
                 elsif x == "M"
-                    move
+                    self.move
                 end
             end
     end
@@ -56,6 +56,5 @@ class Rover
 
     my_rover = Rover.new(0, 0, "N")
     puts my_rover
-    my_rover.read_instruction("LMMRMMRMMMM")
+    my_rover.read_instruction("MMLMR")
     puts my_rover
-
