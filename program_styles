@@ -1,0 +1,66 @@
+imperative programming
+
+statement 1 runs
+statement 2 runs
+statement 3 runs
+end
+
+plateau = Plateau.new(5, 5)
+rover = Rover.new(0, 0, "N", plateau)
+puts plateau.max_x
+rover.read_instruction("MMMMMMM")
+puts rover
+
+
+IN OO
+class Animal
+
+    state
+
+    behaviour
+
+end
+
+shop for building cars
+mechanics
+lifts/bays
+tools
+priorty/car type (Could be own class or part of a class
+)
+
+
+for cat family
+cats
+families
+breeds
+age
+time came in
+neutered?
+
+give food => modify hunger level
+neutering/spaying => modifies sexual viability of cats
+give toys => increases happiness
+
+each rover should know about itself => where it is, where it is moving
+how do we model ruby states?
+in the init process instance variables => the @variables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+!!!spearate under rover
+

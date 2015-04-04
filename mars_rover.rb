@@ -1,8 +1,17 @@
+class Plateau
+    attr_reader :max_x, :max_y
+    def initialize(x, y)
+        @max_x = x
+        @max_y = y
+    end
+end
+
 class Rover
-    def initialize(init_x, init_y, init_dir)
+    def initialize(init_x, init_y, init_dir, plateau)
         @x = init_x
         @y = init_y
         @dir = init_dir
+        @plateau = plateau
     end
     def read_instruction(user_input)
         commands = user_input.split(//)
@@ -40,21 +49,36 @@ class Rover
         end
     def move
         if @dir == "N"
-            @y += 1
+            if @x == (@plateau.max_x)
+                puts "I've reached the edge of the Plateau!"
+            else @x += 1
+            end
         elsif @dir == "E"
-            @x += 1
+            if @y == (@plateau.max_y)
+                puts "Ive reached the edge!"
+            else @y += 1
+            end
         elsif @dir == "S"
-            @y -= 1
+            if @x == 0
+                puts "Ive reached the edge!"
+            else @x -= 1
+            end
         elsif @dir == "W"
-            @x -= 1
+            if @y == 0
+                puts "Ive reached the edge!"
+            else @y -= 1
+            end
         end
     end
+
     def to_s
     "I am at #{@x}, #{@y} facing #{@dir}."
     end
     end
 
-    my_rover = Rover.new(0, 0, "N")
-    puts my_rover
-    my_rover.read_instruction("MMLMR")
-    puts my_rover
+
+
+tharsis = Plateau.new(8, 7)
+tharsis_rover = Rover.new(2, 3, "E", tharsis)
+tharsis_rover.read_instruction("MMLMMMMMMRMMMRMMRM")
+puts tharsis_rover
