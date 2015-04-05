@@ -72,13 +72,30 @@ class Rover
     end
 
     def to_s
-    "I am at #{@x}, #{@y} facing #{@dir}."
-    end
+        "I am on " + @plateau.to_s + " at coordinates #{@x}, #{@y} facing #{@dir}"
     end
 
+    def dropship(plateau)
+        @plateau = plateau
+        puts "What X coordinate do you wish to land at?"
+        @x = gets.to_i
+        puts "What Y coordinate do you wish to land at?"
+        @y = gets.to_i
+    end
+
+    end
+
+    # class Controller
+    #     def initialize
+    #     end
+    # end
 
 
 tharsis = Plateau.new(8, 7)
 tharsis_rover = Rover.new(2, 3, "E", tharsis)
-tharsis_rover.read_instruction("MMLMMMMMMRMMMRMMRM")
+puts tharsis_rover
+plateau = Plateau.new(10, 10)
+tharsis_rover.dropship(plateau)
+puts tharsis_rover
+tharsis_rover.read_instruction("RMMRMM")
 puts tharsis_rover
